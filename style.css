@@ -1,11 +1,7 @@
 :root {
-  --jhBrown: rgb(35, 31, 32);
-  --jhBrownOpacity: rgba(35, 31, 32, 0.4);
-  --jhOffWhite: rgb(255, 247, 247);
-  --jhWhite: rgb(255, 255, 255);
-  --jhPink: rgba(134, 96, 146, 1);
-  --jhPinkOpacity: rgba(134, 96, 146, 0.4);
-  --jhDebugframe: rgba(255, 0, 0, 0);
+  --dummyBrown: rgb(35, 31, 32);
+  --dummyOffWhite: rgb(244, 241, 245);
+  --dummyPink: rgba(134, 96, 146, 1);
 }
 
 @font-face {
@@ -16,54 +12,88 @@
   font-display: swap;
 }
 
+@font-face {
+  font-family: 'Thasadith';
+  font-style: normal;
+  font-weight: 400;
+  src: local('Thasadith Regular'), local('Thasadith-Regular'), url(https://fonts.gstatic.com/s/thasadith/v2/mtG44_1TIqPYrd_f5R1ot0MV8ia-Fg.woff2) format('woff2');
+  font-display: swap;
+}
+
 body {
-  background-color: var(--jhWhite);
-  color: var(--jhBrown);
-  font-size: calc(10px + 0.5vw);
+  background-color: var(--dummyOffWhite);
+  color: var(--dummyBrown);
+  font-size: calc(13px + 0.5vw);
   font-family: 'Noto Serif TC', serif;
   font-weight: 200;
   margin: 2vw 10vw 10vw;
 }
 
-body>* {
-  margin-bottom: 10vw;
+h1, h2, h3, h4, h5, h6 {
+  font-family: 'Thasadith', sans-serif;
+  font-size: 2em;
+  margin-bottom: 0;
+}
+
+article, footer, header {
+  margin-bottom: 2vw;
+}
+
+article {
+  overflow: auto;
 }
 
 header {
-  border-bottom: solid 1px var(--jhBrownOpacity);
+  border-bottom: solid 1px var(--dummyPink);
+  margin: 20vw 0;
+  text-align: center;
 }
 
 footer {
-  border-top: solid 1px var(--jhBrownOpacity);
+  border-top: solid 1px var(--dummyPink);
 }
 
 a {
-  background-color: var(--jhBrownOpacity);
   color: black;
-  padding: 0.5em 1.5em 0.6em;
   text-decoration: none;
-  text-transform: uppercase;
-  transition: background-color 0.5s ease;
+  transition: text-decoration 0.5s ease;
 }
 
 a:hover {
-  background-color: var(--jhPinkOpacity);
+  text-decoration: underline;
 }
 
-a:active {
-  background-color: black;
+#article img {
+  float: right;
 }
 
-section>p {
-  margin-bottom: 3vw;
+footer {
+  margin-top: 15vw;
+  text-align: center;
+}
+
+#article img {
+  width: 40%;
 }
 
 #front img {
-  float: right;
-  max-width: 50%;
+  width: 100%;
 }
 
-img {
-  float: right;
-  max-width: 50%;
+#front #articles {
+  display: grid;
+  grid-column-gap: 10%;
+  grid-template-columns: 45% 45%;
+}
+
+@media only screen and (max-width:609px) {
+  body {
+    margin: 3%;
+  }
+  #front #articles {
+    grid-template-columns: 100%;
+  }
+  #article img {
+    width: 100%;
+  }
 }
